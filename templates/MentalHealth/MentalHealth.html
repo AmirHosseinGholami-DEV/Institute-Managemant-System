@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8">
+    <title>دوره تربیت دینی وسلامت روان</title>
+    <!-- Icon link  -->
+    <link rel="icon" href="{% static "Static Home/Image/Logo.png" %}">
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{% static "Static Institution/css/style-rtl-demo.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "Static Institution/css/style-rtl.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "Static Institution/css/style-demo.css" %}">
+
+</head>
+
+<body class="bg-peach">
+
+    <main class="main">
+        <div class="wrapper wrapper--shadow-orange">
+            <!-- Sidebar -->
+            <aside class="sidebar" data-simplebar="" data-simplebar-direction="rtl">
+                <div>
+                    <div class="avatar-wrap">
+                        <svg class="avatar avatar--180" viewBox="0 0 188 188">
+                            <g class="avatar__box">
+                                <image xlink:href="{% static "Static Institution/images/Grade.png" %}" height="100%" width="100%"></image>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="title sidebar__user-name" style="font-family: vazir; font-size: 40px;"><span class="weight--500" style="font-family: vazir;"> سلامت  </span> روان </h3>
+                        <div class="badge badge--gray" style="font-family: vazir; font-size: 20px;">دوره برتر موسسه پویش</div>
+                    </div>
+
+                    <ul class="contact-block">
+                        <li class="contact-block__item" data-toggle="tooltip" data-placement="top" style="padding-top: 10px; font-family: vazir;">
+                            <i class="font-icon icon-map-pin"></i> برازجان، خیابان شورا نبش 4
+                        </li>
+                        <li class="contact-block__item" data-toggle="tooltip" data-placement="top" style="font-family: vazir;">
+                            <i class="font-icon icon-smartphone "></i> 5617 177 0917
+                        </li>
+                    </ul>
+                </div>
+                <a class="btn " href="{% url "MentalHealth Register" %}" style="font-family: vazir;">ثبت نام در دوره</a>
+            </aside>
+
+            <!-- Content -->
+            <div class="content " data-simplebar=" " data-simplebar-direction="rtl">
+                <!-- About -->
+                <div class="section mt-0 ">
+                    <h1 style="font-family: vazir; font-size: 40px;">درباره دوره تربیت بدنی و سلامت روان </h1>
+                    <div class="pt-2 pt-sm-3 ">
+                        <p style="font-family: vazir;">مطالب دوره</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Content End -->
+        </div>
+        <!-- Wrapper End -->
+    </main>
+    <!-- JavaScripts -->
+    <script src="{% static "Static Institution/js/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "Static Institution/js/plugins.min.js" %}"></script>
+    <script src="{% static "Static Institution/js/common.js" %}"></script>
+    <script src="{% static "Static Institution/js/plugins-demo.js" %}"></script>
+
+</body>
+
+</html>

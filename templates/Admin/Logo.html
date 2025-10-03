@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0;">
+    <title>پنل ادمین موسسه پویش</title>
+    <!-- Icon link  -->
+    <link rel="icon" href="{% static "Static Home/Image/Logo.png" %}">
+    <link rel="stylesheet" href="{% static "Static Admin/css/style.css" %}">
+    <link rel="stylesheet" href="{% static "Static Admin/css/responsive_991.css" %}" media="(max-width:991px)">
+    <link rel="stylesheet" href="{% static "Static Admin/css/responsive_768.css" %}" media="(max-width:768px)">
+    <link rel="stylesheet" href="{% static "Static Admin/css/font.css" %}">
+</head>
+
+<body>
+    <script>
+        function submitDeleteForm(contactId) {
+            var form = document.getElementById('delete-form-' + contactId);
+            form.submit();
+        }
+    </script>
+    <div class="sidebar__nav border-top border-left  ">
+        <span class="bars d-none padding-0-18"></span>
+        <div class="profile__info border cursor-pointer text-center">
+            <div class="avatar__img"><img src="{% static "Static Home/Image/A boostani.jpg" %}" class="avatar___img">
+            </div>
+            <span class="profile__name">مسعود بوستانی</span>
+        </div>
+
+        <ul>
+            <li class="item-li i-dashboard is-active"><a href="{% url "Admin Logo" %}">دوره لوگو</a></li>
+            <li class="item-li i-dashboard"><a href="{% url "Admin Rhetorical" %}">دوره فن بیان</a></li>
+            <li class="item-li i-dashboard"><a href="{% url "Admin Life Style" %}">دوره سبک زندگی</a></li>
+            <li class="item-li i-dashboard"><a href="{% url "Admin Phisical Education" %}">دوره تربیت دینی</a></li>
+            <li class="item-li i-users"><a href="{% url "Admin Student" %}">متربیان پویا</a></li>
+            <li class="item-li i-users"><a href="{% url "Admin Teacher" %}">مربیان</a></li>
+            <li class="item-li i-comments"><a href="{% url "Admin Contact" %}">تماس با ما</a></li>
+        </ul>
+
+    </div>
+    <div class="content">
+        <div class="header d-flex item-center bg-white width-100 border-bottom padding-12-30">
+            <div class="header__right d-flex flex-grow-1 item-center">
+                <span class="bars"></span>
+                <a class="header__logo" href="{% url "home" %}"></a>
+            </div>
+            <div class="header__left d-flex flex-end item-center margin-top-2">
+                <a href="{% url "home" %}" class="logout" title="خروج"></a>
+            </div>
+        </div>
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html" title="پیشخوان">شرکت کنندگان دوره لوگو</a></li>
+            </ul>
+        </div>
+        <div class="table__box">
+
+            <table width="100%" class="table">
+                <thead role="rowgroup">
+                    <tr role="row" class="title-row">
+                        <th>ردیف</th>
+                        <th>نام و نام خانوادگی</th>
+                        <th>ایمیل</th>
+                        <th>نام دوره</th>
+                        <th>وضعیت</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in contacts %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{ contact.name }}</td>
+                            <td>{{ contact.email }}</td>
+                            <td><a href="">پیشنهاد بر ثبت نام دوره لوگو موسسه پویش</a></td>
+                            <td><a href="" class="text-success">ثبت نام</a></td>
+                            <td class="i__oprations">
+                                <form id="delete-form-{{ contact.id }}" action="{% url 'delete_contact_Logo' contact.id %}" method="post" style="display:none;">
+                                    {% csrf_token %}
+                                </form>
+                                <a href="javascript:void(0);" onclick="submitDeleteForm({{ contact.id }});" class="item-delete margin-left-10" title="حذف"></a>   
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+<script src="{% static "Static Admin/js/jquery-3.4.1.min.js" %}"></script>
+<script src="{% static "Static Admin/js/js.js" %}"></script>
+
+</html>

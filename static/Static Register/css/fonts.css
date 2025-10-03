@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Vazir";
+    src: url('../fonts/vazir.eot');
+    src: url('../fonts/vazir.eot#iefix') format('embedded-opentype'),
+    url('../fonts/vazir.woff') format('woff'),
+    url('../fonts/vazir.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Yekan";
+    src: url('../fonts/yekan.eot');
+    src: url('../fonts/yekan.eot#iefix') format('embedded-opentype'),
+    url('../fonts/yekan.woff') format('woff'),
+    url('../fonts/yekan.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Shabnam";
+    src: url('../fonts/shabnam.eot');
+    src: url('../fonts/shabnam.eot#iefix') format('embedded-opentype'),
+    url('../fonts/shabnam.woff') format('woff'),
+    url('../fonts/shabnam.ttf') format('truetype');
+    font-weight: normal;
+}

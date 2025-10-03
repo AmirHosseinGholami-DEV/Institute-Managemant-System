@@ -1,0 +1,93 @@
+{% load static %}
+<!-- Developer: Amir Hossein Gholami -->
+<!-- Front-End Programmer: Amir Hossein Gholami -->
+<!-- Back-End Programmer: Amir Hossein Gholami -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موسسه پویش</title>
+    <!-- Css Style link  -->
+    <link rel="stylesheet" href="{% static "Static Home/Css/style.css" %}">
+    <link rel="stylesheet" href="{% static "Static Home/Css/all.min.css" %}">
+    <!-- Css Animtion Link -->
+    <link rel="stylesheet" href="{% static "Static Home/Css/Animation.css" %}">
+    <!-- Icon link  -->
+    <link rel="icon" href="{% static "Static Home/Image/Logo.png" %}">
+    <!-- JavaScript Animatoin -->
+    <script defer src="{% static "Static Home/JavaScript/Animation.js " %}"></script>
+</head>
+
+<body>
+    <!-- header section starts  -->
+    <header>
+        <div class="Animation_Title">
+            <a href="{% url "home" %}" class="logo "><i class="fas fa-graduation-cap "></i>موسسه پویش</a>
+        </div>
+        <nav class="navbar " id="main-menu ">
+            <ul>
+                <li><a href="{% url "home" %}" class="active ">خانه</a></li>
+                <li><a href="{% url "about" %}">درباره ما</a></li>
+                <li><a href="{% url "Student" %}">متربیان پویا</a></li>
+                <li><a href="#contact">تماس با ما</a></li>
+            </ul>
+        </nav>
+        <div class="fas fa-bars "></div>
+    </header>
+
+
+    <section class="Up">
+        <div>
+            <div style="padding-top: 50px;">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- contact section starts  -->
+    <section class="contact" id="contact">
+        <h1 class="heading Animation_Up_Fade ">تماس با ما</h1>
+        <h3 class="title Animation_Down_Fade ">خوشحال می شویم با ما هم کلام شوید</h3>
+        <div class="row ">
+            <div class="image ">
+                <img src="{% static "Static Home/Image/contact-img.svg" %}" alt=" ">
+            </div>
+            <div class="form-container" action="Contact">
+                <form method="post">
+                    {% csrf_token %}
+                    <input id="id_first_name" name="first_name" type="text" placeholder="نام" value="{{ form.first_name.value|default_if_none:'' }}" required class="Animation_Up_Fade ">
+                    <input type="text" id="id_last_name" name="last_name" placeholder="نام خانوادگی" value="{{ form.last_name.value|default_if_none:'' }}" required class="Animation_Up_Fade">
+                    <input type="email" id="id_email" name="email" placeholder="ایمیل" value="{{ form.email.value|default_if_none:'' }}" required class="Animation_Up_Fade">
+                    <input type="text" id="id_phone_number" name="phone_number" placeholder="شماره تماس" value="{{ form.phone_number.value|default_if_none:'' }}" required class="Animation_Up_Fade">
+                    <textarea id="id_message" name="message" placeholder="پیام خود را وارد کنید ..." required class="Animation_Up_Fade">{{ form.message.value|default_if_none:'' }}</textarea><br>
+                    <input type="submit" value="ارسال">
+                </form>
+                {% if form.errors %}
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                
+            </div>
+        </div>
+    </section>
+    <!-- contact section ends -->
+    <section class="footer ">
+        <div class="credit Animation_Up_Fade ">طراحی شده توسط برنامه نویس <a href="Web Page/Error 404/index.html ">امیر حسین غلامی</a></div>
+    </section>
+    <!-- jquery cdn link  -->
+    <script src="{% static "Static Home/JavaScript/jquery.min.js" %}"></script>
+    <!-- custom js file link  -->
+    <script src="{% static "Static Home/JavaScript/main.js " %}"></script>
+</body>
+
+</html>

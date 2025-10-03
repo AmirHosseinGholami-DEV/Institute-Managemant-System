@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>متربیان پویا</title>
+    <!-- Icon link  -->
+    <link rel="icon" href="{% static "Static Home/Image/Logo.png" %}">
+    <!-- Css Style link  -->
+    <link rel="stylesheet" href="{% static "Static Student/css/style.css" %}" >
+    <link rel="stylesheet" href="{% static "Static Home/Css/style.css" %}">
+    <link rel="stylesheet" href="{% static "Static Home/Css/all.min.css" %}">
+</head>
+
+<body>
+    <!-- header section starts  -->
+    <header>
+        <div class="Animation_Title">
+            <a href="{% url "home" %}" class="logo"><i class="fas fa-graduation-cap"></i>موسسه پویش</a>
+        </div>
+        <nav class="navbar" id="main-menu">
+            <div class="Animation_Menu">
+                <ul>
+                    <li><a href="{% url "home" %}">خانه</a></li>
+                    <li><a href="{% url "about" %}">درباره ما</a></li>
+                    <li><a href="{% url "Student" %}" class="active">متربیان پویا</a></li>
+                    <li><a href="{% url "Contact" %}">تماس با ما</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="fas fa-bars"></div>
+    </header>
+    <!-- header section ends -->
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <table>
+                        <thead>
+                            <tr class="table100-head">
+                                <th class="column1">رتبه :</th>
+                                <th class="column2">نام و نام خانوادگی :</th>
+                                <th class="column3">پایه :</th>
+                                <th class="column4">تعداد الماس :</th>
+                                <th class="column6">مبلغ کل :</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for contact in contacts %}
+                                <tr>
+                                    <td class="column1">{{forloop.counter}}</td>
+                                    <td class="column2">{{ contact.name }}</td>
+                                    <td class="column3">{{ contact.grade }}</td>
+                                    <td class="column4">{{ contact.number }}</td>
+                                    <td class="column6">{{ contact.Amount }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jquery cdn link  -->
+    <script src="{% static "Static Home/JavaScript/jquery.min.js" %}"></script>
+    <!-- custom js file link  -->
+    <script src="{% static "Static Home/JavaScript/main.js " %}"></script>
+</body>
+
+</html>
