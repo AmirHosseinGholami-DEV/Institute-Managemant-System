@@ -17,6 +17,7 @@ source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 ### 3. Install Dependencies
 ```bash
 pip install django
+pip install Pillow
 ```
 
 ### 5. Apply Migrations
